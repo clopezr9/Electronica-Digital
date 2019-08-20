@@ -21,24 +21,24 @@ void setup()
 void loop(){
   if(digitalRead(INICIO)==HIGH){
     digitalWrite(LED22, HIGH);
-    Serial.print("Led 1 encendido");
+    Serial.println("Led 1 encendido");
     delay(5000);
     digitalWrite(LED23, HIGH);
-    Serial.print("Led 2 encendido");
+    Serial.println("Led 2 encendido");
     delay(5000);
     digitalWrite(LED24, HIGH);
-    Serial.print("Led 3 encendido");
+    Serial.println("Led 3 encendido");
     delay(5000);
     }
   if(digitalRead(DETENER)){
     digitalWrite(LED22, LOW);
-    Serial.print("Led 1 apagado");
+    Serial.println("Led 1 apagado");
     delay(5000);
     digitalWrite(LED23, LOW);
-    Serial.print("Led 2 apagado");
+    Serial.println("Led 2 apagado");
     delay(5000);
     digitalWrite(LED24, LOW);
-    Serial.print("Led 3 APAGADO");
+    Serial.println("Led 3 APAGADO");
     delay(5000);
     }
   }
