@@ -20,17 +20,23 @@ void loop() {
   
   Serial.println(FSRread);   //Imprime Valor del sensor
   
-  if(FSRread<=255){
+  if(FSRread<=125){
     digitalWrite(LR, HIGH);   //Prende el led rojo 
+    digitalWrite(LY,LOW);
+    digitalWrite(LB,LOW);
+    digitalWrite(LG,LOW);
   } 
-  else if(FSRread<=510){
+  else if(FSRread<=250){
     digitalWrite(LR,HIGH);
     digitalWrite(LY, HIGH);   //Prende el led amarillo
+    digitalWrite(LB,LOW);
+    digitalWrite(LG,LOW);
   } 
-  else if(FSRread<=765 ){
+  else if(FSRread<=375){
     digitalWrite(LR,HIGH);
     digitalWrite(LY, HIGH);
-    digitalWrite(LB, HIGH);   //Prende el led azul
+    digitalWrite(LB, HIGH);
+    digitalWrite(LG,LOW);//Prende el led azul
   }
   else{
     digitalWrite(LR,HIGH);
@@ -38,4 +44,5 @@ void loop() {
     digitalWrite(LB, HIGH);   
     digitalWrite(LG, HIGH);   //Prende el led verde
   }
+  delay(500);
 }
