@@ -1,17 +1,17 @@
-#define pA  2
-#define pB  3
-#define pC  4
-#define pD  5
-#define pE  6
-#define pF  7
-#define pG  8
-#define LR 23   //Los leds conectados a pines analogos
-#define LG 24
-#define LB 22
-#define ST 12
+#define pA  37
+#define pB  36
+#define pC  35
+#define pD  34
+#define pE  33
+#define pF  32
+#define pG  31
+#define LR 5  //Los leds conectados a pines analogos
+#define LG 4
+#define LB 6
+#define ST 3
 
-int temp;
-unsigned int dis = 0;
+float temp;
+int dis = 0;
 
 void setup() {
   pinMode(pA,OUTPUT);
@@ -146,29 +146,32 @@ void truthTable(unsigned int num) {
 }
   
 void loop() {
-  temp = analogRead(ST);
+  temp = (analogRead(ST)*500)/1024;
     if(temp<= 28){
         analogWrite(LR,255);
         analogWrite(LB,14);
         analogWrite(LG,201);
-        Serial.print(temp);
-        dis = temp%10;
+        Serial.println(temp);
+        delay(1500);
+        dis = ((int)temp)%10;
         truthTable(dis);
 
       }else if(temp>30 && temp<= 32){
         analogWrite(LR,255);
         analogWrite(LG,128);
         analogWrite(LB,0);
-        Serial.print(temp);
-        dis = temp%10;
+        Serial.println(temp);
+        delay(1500);
+        dis = ((int)temp)%10;
         truthTable(dis);
         
       } else if(temp>32){
         analogWrite(LR,255);
         analogWrite(LG,0);
         analogWrite(LB,0);
-        Serial.print(temp);
-        dis = temp%10;
+        Serial.println(temp);
+        delay(1500);
+        dis = ((int)temp)%10;
         truthTable(dis);
       }
   
